@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="background_black">#e0000000</drawable>
+    <drawable name="transparent">#00000000</drawable>
+    <drawable name="text_white">#ffffffff</drawable>
+    <drawable name="team_red">#ffff0088</drawable>
+    <drawable name="team_red_light">#59ff0088</drawable>
+    <drawable name="team_blue">#ff0095ff</drawable>
+    <drawable name="team_blue_light">#590095ff</drawable>
+    <drawable name="button_start_green">#accb12</drawable>
+    <drawable name="button_start_green_light">#59accb12</drawable>
+    <drawable name="button_cancel_red">#dd514c</drawable>
+    <drawable name="button_cancel_red_light">#59dd514c</drawable>
+</resources>

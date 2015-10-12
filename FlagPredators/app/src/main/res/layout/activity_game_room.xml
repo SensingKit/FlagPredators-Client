@@ -1,0 +1,212 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="uk.ac.qmul.flagpredators.GameRoomActivity"
+    android:orientation="vertical"
+    android:id="@+id/gameRoomLayout"
+    android:background="@drawable/background_black">
+
+    <TextView android:text="@string/label_game_name" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gameNameTextView"
+        android:textColor="@drawable/text_white"
+        android:layout_gravity="center_horizontal" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/titleRow"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_red_team"
+                android:id="@+id/redTeamTextView"
+                android:textColor="@drawable/team_red"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_blue_team"
+                android:id="@+id/blueTeamTextView"
+                android:textColor="@drawable/team_blue"
+                android:layout_gravity="center_horizontal" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/firstRow"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_red_player_1"
+                android:id="@+id/redPlayerButton1"
+                style="@style/normal_button_style" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_blue_player_1"
+                android:id="@+id/bluePlayerButton1"
+                style="@style/normal_button_style" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/secondRow"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_red_player_2"
+                android:id="@+id/redPlayerButton2"
+                style="@style/normal_button_style"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_blue_player_2"
+                android:id="@+id/bluePlayerButton2"
+                style="@style/normal_button_style"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/thirdRow"
+            android:gravity="center_horizontal">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_red_player_3"
+                android:id="@+id/redPlayerButton3"
+                style="@style/normal_button_style"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_blue_player_3"
+                android:id="@+id/bluePlayerButton3"
+                style="@style/normal_button_style"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fourthRow"
+            android:gravity="center_horizontal">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_red_player_4"
+                android:id="@+id/redPlayerButton4"
+                style="@style/normal_button_style"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_blue_player_4"
+                android:id="@+id/bluePlayerButton4"
+                style="@style/normal_button_style"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fifthRow"
+            android:gravity="center_horizontal">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_red_player_5"
+                android:id="@+id/redPlayerButton5"
+                style="@style/normal_button_style"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_blue_player_5"
+                android:id="@+id/bluePlayerButton5"
+                style="@style/normal_button_style"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/addTeamRow"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_add_red_team"
+                android:id="@+id/addRedButton"
+                android:textColor="@drawable/text_pink_selector"
+                android:background="@drawable/button_pink_stroke_selector"
+                android:onClick="addRedOnClick" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_add_blue_team"
+                android:id="@+id/addBlueButton"
+                android:textColor="@drawable/text_blue_selector"
+                android:background="@drawable/button_blue_stroke_selector"
+                android:onClick="addBlueOnClick" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/buttonRow"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_cancel"
+                android:id="@+id/cancelButton"
+                android:textColor="@drawable/text_red_selector"
+                android:background="@drawable/button_red_stroke_selector"
+                android:onClick="cancelTheGameOnClick" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_start"
+                android:id="@+id/startButton"
+                android:textColor="@drawable/text_green_selector"
+                android:background="@drawable/button_green_stroke_selector"
+                android:onClick="startTheGameOnClick" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

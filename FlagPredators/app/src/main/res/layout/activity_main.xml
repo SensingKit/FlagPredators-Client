@@ -1,0 +1,142 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@drawable/background_black"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:id="@+id/titleTextView"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:textColor="@drawable/text_white"/>
+<!--
+    <Space
+        android:layout_width="10dp"
+        android:layout_height="10dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_connect"
+        android:id="@+id/connectButton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="connectOnClick"
+        android:textColor="@drawable/text_pink_selector"
+        android:background="@drawable/button_pink_stroke_selector" />
+-->
+    <Space
+        android:layout_width="10dp"
+        android:layout_height="10dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_start"
+        android:id="@+id/startButton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="startOnClick"
+        android:textColor="@drawable/text_pink_selector"
+        android:background="@drawable/button_pink_stroke_selector"/>
+
+    <Space
+        android:layout_width="10dp"
+        android:layout_height="10dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_reconnect"
+        android:id="@+id/reconnectButton"
+        android:onClick="reconnectOnClick"
+        android:textColor="@drawable/text_red_selector"
+        android:background="@drawable/button_red_stroke_selector"/>
+
+<!--
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_settings"
+        android:id="@+id/settingsButton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="settingsOnClick"
+        android:textColor="@drawable/text_blue_selector"
+        android:background="@drawable/button_blue_stroke_selector"  />
+-->
+    <Space
+        android:layout_width="10dp"
+        android:layout_height="10dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_about"
+        android:id="@+id/aboutButton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="aboutOnClick"
+        android:textColor="@drawable/text_blue_selector"
+        android:background="@drawable/button_blue_stroke_selector" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_username"
+            android:id="@+id/usernameTextView"
+            android:textColor="@drawable/text_white" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/usernameEditText"
+            android:inputType="text"
+            android:hint="@string/edittext_username_hint"
+            android:textColor="@drawable/text_white"
+            android:textColorHint="#59ffffff"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_set_name"
+        android:id="@+id/registerButton"
+        android:onClick="registerOnClick"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@drawable/text_green_selector"
+        android:background="@drawable/button_green_stroke_selector"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_register"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/registerTextView"
+        android:textColor="@drawable/text_white"
+        android:gravity="center_horizontal" />
+
+    <TextView android:text="@string/textview_result" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/resultTextView"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@drawable/text_white"
+        android:gravity="center_horizontal" />
+
+</LinearLayout>

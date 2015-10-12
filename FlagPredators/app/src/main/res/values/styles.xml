@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="buttonStyleGhost" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="normal_button_style" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@drawable/text_white</item>
+        <item name="android:background">@drawable/transparent</item>
+    </style>
+    <style name="pink_button_style" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@drawable/team_red</item>
+
+    </style>
+    <style name="blue_button_style" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@drawable/team_blue</item>
+
+    </style>
+    <style name="red_button_style" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@drawable/button_cancel_red</item>
+
+    </style>
+    <style name="green_button_style" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@drawable/button_start_green</item>
+
+    </style>
+</resources>
