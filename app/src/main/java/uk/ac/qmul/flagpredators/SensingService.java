@@ -17,9 +17,9 @@ import org.sensingkit.sensingkitlib.SKException;
 import org.sensingkit.sensingkitlib.SKSensorDataListener;
 import org.sensingkit.sensingkitlib.SensingKitLib;
 import org.sensingkit.sensingkitlib.SensingKitLibInterface;
-import org.sensingkit.sensingkitlib.model.data.DataInterface;
-import org.sensingkit.sensingkitlib.model.data.LocationData;
-import org.sensingkit.sensingkitlib.modules.SensorModuleType;
+import org.sensingkit.sensingkitlib.data.SKLocationData;
+import org.sensingkit.sensingkitlib.SKSensorType;
+import org.sensingkit.sensingkitlib.data.SKSensorData;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -38,10 +38,10 @@ import uk.ac.qmul.flagpredators.modules.Protocol;
 
 public class SensingService extends Service {
     private final IBinder sensingBinder = new SensingBinder();
-    private LocationData currentLocationData;
-    private ArrayList<LocationData> currentLocationArrayList;
+    private SKLocationData currentLocationData;
+    private ArrayList<SKLocationData> currentLocationArrayList;
     static SensingKitLibInterface mSensingKitLib;
-    private ArrayList<SensorModuleType> registeredModules = new ArrayList<SensorModuleType>();
+    private ArrayList<SKSensorType> registeredSensors = new ArrayList<SKSensorType>();
 
     public static BoundingBox redBox = null;
     public static BoundingBox blueBox = null; //TODO B[T]
@@ -76,12 +76,12 @@ public class SensingService extends Service {
         new Thread(new CommunicationThread()).start();
         try {
             mSensingKitLib = SensingKitLib.getSensingKitLib(this); //Get SensingKitLib
-            if (!mSensingKitLib.isSensorModuleRegistered(SensorModuleType.LOCATION)) { //Check whether the sensor module is registered
-                mSensingKitLib.registerSensorModule(SensorModuleType.LOCATION); //Register Sensor Module: LOCATION
+            if (!mSensingKitLib.isSensorRegistered(SKSensorType.LOCATION)) { //Check whether the sensor module is registered
+                mSensingKitLib.registerSensor(SKSensorType.LOCATION); //Register Sensor Module: LOCATION
                 System.out.println("Registered!");
             }
             new Thread(new SensingServerThread()).start();
-            currentLocationArrayList = new ArrayList<LocationData>();
+            currentLocationArrayList = new ArrayList<SKLocationData>();
         } catch (SKException e) {
             e.printStackTrace();
         }
@@ -176,16 +176,16 @@ public class SensingService extends Service {
 
 //Stop Sensing location
     public Location stopSensing() {
-        LocationData lastData = null;
+        SKLocationData lastData;
         try {
             wakeLock.release();
-            if(mSensingKitLib.isSensorModuleSensing(SensorModuleType.LOCATION)){
-                mSensingKitLib.stopContinuousSensingWithSensor(SensorModuleType.LOCATION);
+            if(mSensingKitLib.isSensorSensing(SKSensorType.LOCATION)){
+                mSensingKitLib.stopContinuousSensingWithSensor(SKSensorType.LOCATION);
             }
             if(currentLocationArrayList.size() > 0){ //avoid null pointer exception
                 lastData = currentLocationArrayList.get(currentLocationArrayList.size() - 1);
                 System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"); //print out the last data
-                System.out.println("The last data : " + lastData.getDataInString());
+                System.out.println("The last data : " + lastData.getDataInCSV());
                 System.out.println("The size of data list : " + currentLocationArrayList.size());
                 System.out.println(">>Latitude : " + lastData.getLocation().getLatitude());
                 System.out.println(">>Longitude : " + lastData.getLocation().getLongitude());
@@ -206,7 +206,7 @@ public class SensingService extends Service {
 
     public ArrayList<Location> getLocations(){
         ArrayList<Location> locations = new ArrayList<Location>();
-        for (LocationData locationData : currentLocationArrayList){
+        for (SKLocationData locationData : currentLocationArrayList){
             locations.add(locationData.getLocation());
         }
         return locations;
@@ -219,30 +219,30 @@ public class SensingService extends Service {
             super();
             try {
                 //Subscribe the sensor data listener for Location module
-                mSensingKitLib.subscribeSensorDataListener(SensorModuleType.LOCATION, this);
+                mSensingKitLib.subscribeSensorDataListener(SKSensorType.LOCATION, this);
             } catch (SKException e) {
                 e.printStackTrace();
             }
         }
         public void run() {
             try {
-                if(!mSensingKitLib.isSensorModuleSensing(SensorModuleType.LOCATION)){
-                    mSensingKitLib.startContinuousSensingWithSensor(SensorModuleType.LOCATION); //Start sensing
+                if(!mSensingKitLib.isSensorSensing(SKSensorType.LOCATION)){
+                    mSensingKitLib.startContinuousSensingWithSensor(SKSensorType.LOCATION); //Start sensing
                 }
             } catch (SKException e) {
                 e.printStackTrace();
             }
         }
 
-        public void onDataReceived(SensorModuleType sensorModuleType, DataInterface moduleData) {
-            currentLocationData = (LocationData) moduleData;
+        public void onDataReceived(SKSensorType sensorType, SKSensorData moduleData) {
+            currentLocationData = (SKLocationData) moduleData;
             double lat = currentLocationData.getLocation().getLatitude();
             double lng = currentLocationData.getLocation().getLongitude();
-            System.out.println("#####SENSING#####" + currentLocationData.getDataInString());
+            System.out.println("#####SENSING#####" + currentLocationData.getDataInCSV());
             System.out.println(">> Latitude: " + lat);
             System.out.println(">> Longitude: " + lng);
-            currentLocationArrayList.add((LocationData) moduleData);
-            DataManager outputData = null;
+            currentLocationArrayList.add((SKLocationData) moduleData);
+            DataManager outputData;
             if(GET_FLAG){
                 outputData = new DataManager(Protocol.CHECK_LOCATION_WITH_BASE);
             }else {
