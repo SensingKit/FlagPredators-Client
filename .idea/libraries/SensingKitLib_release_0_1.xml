@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="SensingKitLib-release-0.1">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/org.sensingkit/SensingKitLib-release/0.1/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/org.sensingkit/SensingKitLib-release/0.1/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
