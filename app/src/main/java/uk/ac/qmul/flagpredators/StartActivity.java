@@ -67,7 +67,7 @@ public class StartActivity extends ActionBarActivity {
         longitudeTextView = (TextView)findViewById(R.id.longitudeTextView);
     }
 
-    public void onStart(){
+    protected void onStart(){
         super.onStart();
         Log.i(TAG, "*****Starting*****");
         this.doBindService();
@@ -155,26 +155,26 @@ public class StartActivity extends ActionBarActivity {
         StartActivity.this.finish();
     }
 
-    public void onRestart(){
+    protected void onRestart(){
         super.onRestart();
         Log.i(TAG, "*****Restarting*****");
     }
-    public void onResume(){
+    protected void onResume(){
         super.onResume();
         Log.i(TAG,"*****Resuming*****");
     }
-    public void onPause() {
+    protected void onPause() {
         super.onPause();
         Log.i(TAG,"*****Pausing*****");
     }
 
-    public void onStop(){
+    protected void onStop(){
         super.onStop();
         Log.i(TAG, "*****Stopping*****");
         this.doUnbindService();
         this.unregisterReceiver(locationReceiver);
     }
-    public void onDestroy(){
+    protected void onDestroy(){
         super.onDestroy();
         Log.i(TAG, "*****Destroying*****");
     }

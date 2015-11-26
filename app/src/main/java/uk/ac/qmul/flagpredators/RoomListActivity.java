@@ -43,14 +43,14 @@ public class RoomListActivity extends ActionBarActivity {
         reconnectButton.setEnabled(false);
     }
 
-    public void onStart(){
+    protected void onStart(){
         super.onStart();
         System.out.println("*****Starting*****");
         if(this.checkNetwork()){
             this.updateList();
         }
     }
-    public void getWidget(){
+    protected void getWidget(){
         listLayout = (LinearLayout)findViewById(R.id.listLayout);
         reconnectButton = (Button)findViewById(R.id.reconnectButton);
     }
@@ -167,24 +167,24 @@ public class RoomListActivity extends ActionBarActivity {
         return false;
     }
 
-    public void onRestart(){
+    protected void onRestart(){
         super.onRestart();
         System.out.println("*****Restarting*****");
         this.updateList();
     }
-    public void onResume(){
+    protected void onResume(){
         super.onResume();
         System.out.println("*****Resuming*****");
     }
-    public void onPause(){
+    protected void onPause(){
         super.onPause();
         System.out.println("*****Pausing*****");
     }
-    public void onStop(){
+    protected void onStop(){
         super.onStop();
         System.out.println("*****Stopping*****");
     }
-    public void onDestroy(){
+    protected void onDestroy(){
         super.onDestroy();
         System.out.println("*****Destroying*****");
     }

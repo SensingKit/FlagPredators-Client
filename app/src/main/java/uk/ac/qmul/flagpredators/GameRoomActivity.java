@@ -94,7 +94,7 @@ public class GameRoomActivity extends ActionBarActivity {
         hasStarted = false;
     }
 
-    public void onStart(){
+    protected void onStart(){
         super.onStart();
         System.out.println("GameRoom*****Starting*****");
         //this.doBindService();
@@ -419,13 +419,13 @@ public class GameRoomActivity extends ActionBarActivity {
         }
     }
 
-    public void onStop(){
+    protected void onStop(){
         super.onStop();
         System.out.println("GameRoom*****Stopping*****");
 
     }
 
-    public void onDestroy(){
+    protected void onDestroy(){
         super.onDestroy();
         this.leaveRoom();
         //TODO check if the onDestory() will be called when calling finish()
@@ -433,7 +433,7 @@ public class GameRoomActivity extends ActionBarActivity {
     }
 
     //Check whether the network is connected or not
-    public boolean checkNetwork(){
+    protected boolean checkNetwork(){
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         if(networkInfo != null && networkInfo.isConnected()){

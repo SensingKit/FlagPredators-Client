@@ -266,30 +266,30 @@ public class InGameActivity extends ActionBarActivity {
         MainActivity.releaseGameInfo();
     }
 
-    public void onRestart(){
+    protected void onRestart(){
         super.onRestart();
         System.out.println("*****Retarting*****");
         this.registerReceiver(locationReceiver, locationFilter);
     }
-    public void onStart(){
+    protected void onStart(){
         super.onStart();
         System.out.println("*****Starting*****");
     }
-    public void onResume(){
+    protected void onResume(){
         super.onResume();
         System.out.println("*****Resuming*****");
     }
-    public void onPause(){
+    protected void onPause(){
         super.onPause();
         System.out.println("*****Pausing*****");
     }
-    public void onStop(){
+    protected void onStop(){
         super.onStop();
         System.out.println("*****Stopping*****");
         this.unregisterReceiver(locationReceiver);
 
     }
-    public void onDestroy(){
+    protected void onDestroy(){
         super.onDestroy();
         System.out.println("*****Destroying*****");
     }

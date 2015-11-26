@@ -80,28 +80,28 @@ public class MainActivity extends ActionBarActivity {
         registerButton = (Button)findViewById(R.id.registerButton);
     }
 
-    public void onRestart(){
+    protected void onRestart(){
         super.onRestart();
         System.out.println("Main*****Restarting*****");
     }
-    public void onStart(){
+    protected void onStart(){
         super.onStart();
         System.out.println("Main*****Starting*****");
         this.checkInGame();
     }
-    public void onResume(){
+    protected void onResume(){
         super.onResume();
         System.out.println("Main*****Resuming*****");
     }
-    public void onPause(){
+    protected void onPause(){
         super.onPause();
         System.out.println("Main*****Pausing*****");
     }
-    public void onStop(){
+    protected void onStop(){
         super.onStop();
         System.out.println("Main*****Stopping*****");
     }
-    public void onDestroy(){
+    protected void onDestroy(){
         super.onDestroy();
         System.out.println("Main*****Destroying*****");
     }

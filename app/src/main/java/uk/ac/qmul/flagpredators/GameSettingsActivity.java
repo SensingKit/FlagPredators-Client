@@ -142,23 +142,23 @@ public class GameSettingsActivity extends ActionBarActivity {
         return false;
     }
 
-    public void onStart(){
+    protected void onStart(){
         super.onStart();
         System.out.println("*****Starting*****");
     }
-    public void onResume(){
+    protected void onResume(){
         super.onResume();
         System.out.println("*****Resuming*****");
     }
-    public void onPause(){
+    protected void onPause(){
         super.onPause();
         System.out.println("*****Pausing*****");
     }
-    public void onStop(){
+    protected void onStop(){
         super.onStop();
         System.out.println("*****Stopping*****");
     }
-    public void onDestroy(){
+    protected void onDestroy(){
         super.onDestroy();
         System.out.println("*****Destroying*****");
     }
